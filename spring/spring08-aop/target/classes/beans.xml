@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/aop" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd"
+        >
+        <!--注册bean-->
+<bean id="userService" class="com.kuang.service.UserServiceImpl"/>
+<bean id="log" class="com.kuang.log.Log"/>
+<bean id="afterLog" class="com.kuang.log.AfterLog"/>
+
+        <!--    方式1  原生的spring api-->
+        <!--    <aop:config>-->
+        <!--        <aop:pointcut id="pointcut" expression="execution(* com.kuang.service.UserServiceImpl.*(..))"/>-->
+        <!--        &lt;!&ndash;执行环绕; advice-ref执行方法 . pointcut-ref切入点&ndash;&gt;-->
+        <!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+        <!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+
+
+        <!--    </aop:config>-->
+<bean id="diyPointCut" class="com.kuang.diy.diyPointCut"></bean>
+        <!--    方式2  自定义切面类-->
+        <!--    <aop:config>-->
+        <!--  自定义切面-->
+        <!--       <aop:aspect ref="diyPointCut">-->
+        <!--           <aop:pointcut id="diyPointCut1" expression="execution(* com.kuang.service.UserServiceImpl.*(..))"/>-->
+        <!--           <aop:before pointcut-ref="diyPointCut1" method="before"/>-->
+        <!--           <aop:after pointcut-ref="diyPointCut1" method="after"/>-->
+        <!--       </aop:aspect>-->
+        <!--    </aop:config>-->
+
+
+        <!--第三种方式:注解实现-->
+<bean id="annotationPointcut" class="com.kuang.diy.diyAnnotationPointCut"/>
+        <!--    开启注解-->
+<aop:aspectj-autoproxy/>
+        </beans>

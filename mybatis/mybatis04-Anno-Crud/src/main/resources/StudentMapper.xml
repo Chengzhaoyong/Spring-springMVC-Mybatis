@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuang.dao.StudentMapper">
+
+<!-- 1  子查询    -->
+    <select id="getStudent" resultMap="StudentTeacher">
+    select * from student
+   </select>
+    <resultMap id="StudentTeacher" type="Student">
+        <!--association关联属性 property属性名 javaType属性类型 column在多的一方的表中的列名-->
+        <association property="teacher"  column="tid" javaType="Teacher" select="getTeacher"/>
+    </resultMap>
+
+    <select id="getTeacher" resultType="teacher">
+      select * from teacher where id = #{id}
+   </select>
+
+
+<!--    联表查询-->
+    <select id="getStudents" resultMap="StudentTeacher2">
+          select s.id sid, s.name sname , t.name tname,t.id tid
+  from student s,teacher t
+  where s.tid = t.id
+    </select>
+
+    <resultMap id="StudentTeacher2" type="Student">
+        <id property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <!--关联对象property 关联对象在Student实体类中的属性-->
+        <association property="teacher" javaType="Teacher">
+           <result property="id" column="tid"></result>
+        <result property="name" column="tname"/>
+    </association>
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop"
+
+>
+
+    <import resource="spring-dao.xml"></import>
+
+<!--    <bean id="userMapper" class="com.kuang.dao.UserMapperImpl">-->
+<!--        <property name="sqlSession" ref="sqlSession"/>-->
+<!--    </bean>-->
+
+<!--  第二种方式 extends SqlSessionDaoSupport  -->
+
+    <bean id="userMapper" class="com.kuang.dao.UserMapperImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+
+
+</beans>

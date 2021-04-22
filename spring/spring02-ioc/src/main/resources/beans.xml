@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    有参数构造-->
+<bean id="User" class="com.kuang.pojo.User" name="user111,user,haha">
+    <constructor-arg name="name" value="程兆永" ></constructor-arg>
+    <constructor-arg name="age" value="12" ></constructor-arg>
+</bean>
+
+<!--    无参构造自动创建-->
+
+<!--    <bean id="UserT" class="com.kuang.pojo.UserT">-->
+<!--        <property name="name" value="好好处"></property>-->
+<!--    </bean>-->
+</beans>
