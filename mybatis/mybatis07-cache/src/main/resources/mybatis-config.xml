@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties">
+    </properties>
+
+
+
+<!--        日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+
+
+
+<!--    别名-->
+<typeAliases>
+<!--  1  别名不区分大小写-->
+<!--    <typeAlias alias="UseR" type="com.kuang.pojo.User"/>-->
+
+<!--    在以下包的实体类  别名为类名首字母小写   如用注解  注解值为别名-->
+    <package name="com.kuang.pojo"/>
+</typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+<!--        <mapper resource="com/kuang/dao/userMapper.xml"/>-->
+<!--        接口和实现类 必须同名  在同一包下-->
+<!--        <package name="com.kuang.dao.userDao"/>-->
+<mapper resource="BlogMapper.xml"></mapper>
+    </mappers>
+</configuration>

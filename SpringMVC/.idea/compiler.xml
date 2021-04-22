@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springMVC04-ssm" />
+        <module name="SpringMVC06-interceptor" />
+        <module name="springMVC02-annotation" />
+        <module name="SpringMVC05-ajax" />
+        <module name="SpringMVC01-helloMVC" />
+        <module name="SpringMVC03-json" />
+        <module name="SpringMVC07-file" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
+  </component>
+</project>

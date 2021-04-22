@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd"
+
+        >
+<!--开启属性注解支持！-->
+    <context:annotation-config/>
+
+    <bean id="dog1" class="com.kuang.pojo.Dog"></bean>
+    <bean id="cat" class="com.kuang.pojo.Cat"></bean>
+<!--    按照类型匹配-->
+<!--    <bean id="user" class="com.kuang.pojo.User" autowire="byType"></bean>-->
+        <bean id="user" class="com.kuang.pojo.User">
+            <property name="name" value="狗哥"></property>
+        </bean>
+
+</beans>
